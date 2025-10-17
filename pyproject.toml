@@ -1,0 +1,89 @@
+[build-system]
+requires = ["setuptools>=68.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "backup1c"
+version = "1.0.0"
+description = "Система резервного копирования баз данных 1С с GUI на Dear PyGui"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "Minzedefender", email = "your.email@example.com"}
+]
+keywords = ["1c", "backup", "yandex-disk", "telegram", "dearpygui"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: Microsoft :: Windows",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: System :: Archiving :: Backup",
+]
+
+dependencies = [
+    "cryptography>=41.0.0",
+    "requests>=2.31.0",
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "dearpygui>=1.10.1",
+    "click>=8.1.0",
+    "rich>=13.7.0",
+    "python-telegram-bot>=20.7",
+    "APScheduler>=3.10.4",
+    "tqdm>=4.66.0",
+    "psutil>=5.9.0",
+    "colorlog>=6.8.0",
+    "pydantic-settings>=2.1.0",
+    "PyYAML>=6.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+    "black>=23.10.0",
+    "isort>=5.12.0",
+    "flake8>=6.1.0",
+    "mypy>=1.6.0",
+]
+
+windows = [
+    "pywin32>=306",
+]
+
+[project.scripts]
+backup1c = "backup1c.cli.commands:main"
+backup1c-gui = "main:main"
+
+[project.urls]
+Homepage = "https://github.com/Minzedefender/backup1c-python"
+Repository = "https://github.com/Minzedefender/backup1c-python"
+Issues = "https://github.com/Minzedefender/backup1c-python/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["backup1c*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 100
+target-version = ['py39', 'py310', 'py311', 'py312']
+
+[tool.isort]
+profile = "black"
+line_length = 100
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+addopts = [
+    "--verbose",
+    "--cov=backup1c",
+]

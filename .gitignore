@@ -1,0 +1,65 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS specific
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Project specific - ВАЖНО!
+config/secrets.enc
+config/key.bin
+config/bases/*.json
+config/settings.json
+
+# Logs
+logs/*.log
+*.log
+
+# Backup files - НЕ загружаем резервные копии в Git!
+*.1CD
+*.dt
+*.bak
+
+# Temporary files
+*.tmp
+*.temp
+
+# Test coverage
+htmlcov/
+.coverage
+.pytest_cache/
